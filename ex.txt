@@ -1,4 +1,8 @@
 Hii this is my demo push and commit
+<<<<<<< HEAD
 swetha sri
+=======
+
+>>>>>>> 35aff98437d453ecca89be93558f7c9100f811eb
 
 hii this to ignore last commit
