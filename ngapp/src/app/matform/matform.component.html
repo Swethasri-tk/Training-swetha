@@ -1,0 +1,95 @@
+<form>
+    <div class="example-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your First Name</mat-label>
+          <input matInput placeholder="xxxxx" [formControl]="firstname" required>
+          <mat-error *ngIf="firstname.invalid">{{getErrorn1()}}</mat-error>
+        </mat-form-field><br>
+
+       
+            <mat-form-field appearance="fill">
+              <mat-label>Enter your Last Name</mat-label>
+              <input matInput placeholder="yyyy" [formControl]="lastname" required>
+              <mat-error *ngIf="lastname.invalid">{{getErrorn2()}}</mat-error>
+            </mat-form-field><br>
+
+         
+            
+            
+    
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your email</mat-label>
+          <input matInput placeholder="abc@example.com" [formControl]="email" required>
+          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" [formControl]="p1" required>
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="p1.invalid">{{getErrorp1()}}</mat-error>
+          </mat-form-field><br>
+          <mat-form-field appearance="fill">
+            <mat-label>Confirm your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" [formControl]="p2" required>
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="p2.invalid">{{getErrorp2()}}</mat-error>
+           
+          </mat-form-field> <br>
+          
+         
+         
+          <mat-form-field appearance="fill">
+            <mat-label>Select Your Country</mat-label>
+            <mat-select [formControl]="countries" required>
+            
+              <mat-option value="India">India</mat-option>
+              <mat-option value="Germany">Germany</mat-option>
+            </mat-select>
+            <mat-error *ngIf="countries.invalid">{{getErrorc()}}</mat-error>
+          </mat-form-field> <br>
+
+          <div (click)="oncc(ma,fe)" class="gencheck" >
+            &nbsp; Choose your Gender &nbsp; &nbsp; &nbsp;
+            <input type="checkbox" name="male" value="male" #ma>Male &nbsp; &nbsp;
+        <input type="checkbox" name="female" value="female"#fe>Female
+         <p style="color: red;"  #t2>{{ff}}</p>
+        </div> <br>
+
+        <div class="gencheck" (change)="onerr(img)">
+          <input type="file" accept="image/*" (change)="selectimg($event)" [formControl]="image"> <br>
+          <img [src]="url" height="200px" width="250px" style="margin-left: 10%;" #img> 
+          <p style="color: red;"  #t2>{{err}}</p>
+      </div> <br>
+    
+         
+          
+         
+          
+         
+             
+              <button mat-raised-button color="primary" (click)="onSubmit(ma,fe)">Submit</button>
+             
+           
+
+      </div>
+    </form>  
+
+
+ <!-- <button type="submit" class="btns" mat-flat-button color="primary">Submit </button>
+ <h3>Choose Your Gender</h3>
+          <mat-checkbox id="male"  color="primary" 
+          formControlName="g1">Male</mat-checkbox> &nbsp;
+          <mat-checkbox id="female"  color="primary" 
+          formControlName="g2">Male</mat-checkbox> &nbsp;
+          <h3 id="text"></h3>
+        <br>
+        
+            <input type="checkbox" id="m">Male
+            <input type="checkbox" id="f">Female
+            <h3 id="text" #text>{{getErrorg()}}</h3>
+
+-->
