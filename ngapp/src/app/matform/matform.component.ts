@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-matform',
@@ -13,15 +13,11 @@ export class MatformComponent implements OnInit {
   email = new FormControl('', [Validators.required, Validators.email]);
   p1 = new FormControl('',[Validators.required, Validators.minLength(6)]);
   p2 = new FormControl('',[Validators.required, Validators.minLength(6)]);
-  gender = new FormControl('',[Validators.required]);
-  g1 = new FormControl();
-  g2 = new FormControl();
   image = new FormControl('', Validators.required);
+  countries = new FormControl('',[Validators.required]);
   ff:any;
   err:any;
   url = "";
- 
-  countries = new FormControl('',[Validators.required]);
   hide = true;
   
   
@@ -38,37 +34,38 @@ export class MatformComponent implements OnInit {
 
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
+
   getErrorp1() {
     if(this.p1.hasError('required')) {
       return 'Not a valid password';
     }
     return 'You must enter a value with atleast 6 characters' ;
     }  
-    getErrorp2() {
+
+  getErrorp2() {
       if(this.p1.value != this.p2.value) {
       return 'You must enter noo';
       }
-      return ' Your password does not match' ;
-
-      
+      return ' Your password does not match' ;    
       }
      
 
-      getErrorc() {
+  getErrorc() {
         if(this.countries.hasError('required') && this.countries == null) {
           return 'You must select your country';
         }
         return 'You must select your country';
       }
 
-      getErrorn1() {
+  getErrorn1() {
         if(this.firstname.hasError('required')) {
           return 'You must enter name';
 
         }
         return 'you must enter name between 3 to 20 characters ';
       }
-      getErrorn2() {
+
+    getErrorn2() {
         if(this.lastname.hasError('required')) {
           return 'You must enter name';
 
@@ -76,14 +73,8 @@ export class MatformComponent implements OnInit {
         return 'you must enter name between 3 to 20 characters ';
       }
 
-     getErrorgen() {
-      if(this.gender.hasError('required') && this.gender == null) {
-        return 'You must select your gender';
-      }
-      return 'You must select your gender';
-      
-     }
-     oncc(check1:any, check2:any) {
+  
+    oncc(check1:any, check2:any) {
       if(check1.checked == true && check2.checked == true) {
         this.ff = "Do not select more options";
       }
@@ -94,6 +85,7 @@ export class MatformComponent implements OnInit {
         this.ff= "";
       }
     }
+
     onerr(im:any) {
       if(im == null) {
         this.err ="You doesn't choose image";
@@ -114,7 +106,7 @@ export class MatformComponent implements OnInit {
     
 
       onSubmit(cc1:any,cc2:any) {
-        if(this.firstname.valid && this.lastname.valid && this.email.valid && this.p1.valid && this.p2.valid && this.countries.valid && this.gender.valid && this.image.valid && this.p1.value == this.p2.value && cc1.checked == true || cc2.checked == true) {
+        if(this.firstname.valid && this.lastname.valid && this.email.valid && this.p1.valid && this.p2.valid && this.countries.valid  && this.image.valid && this.p1.value == this.p2.value && cc1.checked == true || cc2.checked == true) {
         alert("Form Validation successfull!!");
         }
         else if(this.p1.value != this.p2.value) {
@@ -129,6 +121,7 @@ export class MatformComponent implements OnInit {
         }
        
       }
+
       }  
   
 
